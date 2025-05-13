@@ -4,7 +4,7 @@
 #include "Krpcchannel.h" 
 #include  "Krpccontroller.h"
 #include<mutex>
-//Krpc基础类，负责框架的一些初始化操作
+//Krpc基础类，负责框架的一些初始化操作，为服务器提供服务
 class KrpcApplication
 {
     public:

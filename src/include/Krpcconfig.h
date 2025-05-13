@@ -1,5 +1,5 @@
-#ifndef _Krpcconfig_h
-#define _Krpcconfig_h
+#ifndef _Krpcconfig_h   // 检查宏_Krpcconfig_h是否已经被定义，已定义，直接跳到endif，中间代码都会被忽略
+#define _Krpcconfig_h   // 未定义，则定义
 #include <unordered_map>
 #include <string>
 class Krpcconfig{

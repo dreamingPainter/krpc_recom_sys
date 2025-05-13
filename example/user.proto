@@ -1,11 +1,11 @@
-syntax="proto3";
-
+syntax="proto3";   
+// 定义包名，上为版本号，必须仿真第一行
 package Kuser;
-
+/** 选项：用于启用C++代码生成中的通用服务，意味着生成C++代码时，为服务生成通用的基类*/
 option cc_generic_services=true;
 
 message ResultCode{
-    int32 errcode=1;
+    int32 errcode=1;    // 类型 字段 字段编号（唯一）
     bytes errmsg=2;
 }
 message LoginRequest{
@@ -25,6 +25,7 @@ message RegisterResponse{
     ResultCode result=1;
     bool success=2;
 }
+// 接口类（纯虚基类，需要具体的服务类来继承和实现）；存根类：给客户调的
 service UserServiceRpc{
     rpc Login(LoginRequest) returns(LoginResponse);
     rpc Register(RegisterRequest) returns(RegisterResponse);

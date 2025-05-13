@@ -54,6 +54,7 @@ void KrpcProvider::Run() {
     std::shared_ptr<muduo::net::TcpServer> server = std::make_shared<muduo::net::TcpServer>(&event_loop, address, "KrpcProvider");
 
     // 绑定连接回调和消息回调，分离网络连接业务和消息处理业务
+    server->setConnectionCallback([this](){return &KrpcProvider::OnConnection;})
     server->setConnectionCallback(std::bind(&KrpcProvider::OnConnection, this, std::placeholders::_1));
     server->setMessageCallback(std::bind(&KrpcProvider::OnMessage, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
 
